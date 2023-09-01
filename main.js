@@ -7,10 +7,14 @@ var dotWord = 0;
 
 const calculate = (btnValue) => {
   if (btnValue === "=" && output !== "") {
-    output = eval(output.replace("%", "/100"));
+   output = eval(output.replace("%", "/100"));
     if (counter > 1) counter = 0;
   } else if (btnValue === "C") {
     output = "";
+  }
+  else if (btnValue === "%") {
+    output /= 100;
+
   } else if (btnValue === "DEL") {
     output = output.toString().slice(0, -1);
   } else {
@@ -37,9 +41,9 @@ const calculate = (btnValue) => {
   if (btnValue === ".") {
     dotWord += 1;
     console.log(dotWord);
-    if (dotWord > 1) output = output.toString().slice(0, -1);
+    if (dotWord > 1 ) output = output.toString().slice(0, -1);
   }
-  inputText.value = output;
+  inputText.value = output
 };
 
 allButtons.forEach((button) => {
